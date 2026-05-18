@@ -113,24 +113,14 @@ Telco Customer Churn/
 
 ## Pipeline Stages
 
-### 1. Data Preprocessing
-- Convert `TotalCharges` to numeric (11 missing values filled with mean)
-- Drop `customerID` (non-predictive identifier)
-- Map `SeniorCitizen` from 0/1 to categorical yes/no
-
+### 1. Data Preporcessing 
 ### 2. Exploratory Data Analysis (`src/EDA.py`)
 - **Univariate**: Bar plots for categorical features, histogram + KDE for numerical
 - **Bivariate**: Crosstab bar plots, box plots, violin plots (MonthlyCharges × Contract × Churn)
 - **Multivariate**: Correlation matrix, pair plot
 
 ### 3. Feature Engineering (`src/features_engineering.py`)
-- `Num_of_services` — count of subscribed add-on services (security, backup, etc.)
-- `tenure_bucket` — binned tenure into 7 groups (0–6m, 7–12m, …, 60m+)
-- **Binary encoding** for binary features (LabelEncoder)
-- **One-Hot encoding** for multi-class categorical features (`pd.get_dummies`)
-
 ### 4. Data Splitting
-- **60%** Training  /  **32%** Validation  /  **8%** Test
 - Stratified split to preserve class balance
 
 ### 5. Modeling (`src/modeling.py`)
